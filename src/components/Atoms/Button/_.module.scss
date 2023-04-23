@@ -1,2 +1,43 @@
+.button-container {
+  position: relative;
+  width: fit-content;
+  left: 25px;
+  top: 25px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover .button--border {
+    transform: translate(8px, 8px);
+  }
+}
+
+.button,
+.button--border {
+  --bezel-width: 4;
+  --bezel-radius: 20px 0 20px 0;
+  color: var(--bezel-color);
+}
+
 .button {
+  --bezel-width: 2;
+  opacity: 0.8;
+  background: paint(bezel), ;
+
+  span {
+    opacity: 0;
+  }
+}
+
+.button--border {
+  position: absolute;
+  transition: 0.1s all ease-in;
+  transition-delay: 0.1s;
+  z-index: 2;
+  box-sizing: content-box;
+  left: -8px;
+  top: -8px;
+  white-space: nowrap;
+  background-image: paint(bezel);
 }

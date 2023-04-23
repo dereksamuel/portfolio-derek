@@ -1,28 +1,50 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styles from './_.module.scss'
 
-function Button ({ children, onClick, theme }) {
+function Button ({ children, onClick, theme, className, ...anotherprops }) {
   const themes = {
-    primary: ['bg-primary', 'text-dark'],
-    secondary: ['bg-secondary', 'text-white'],
-    dark: ['bg-dark', 'text-white']
+    primary: '#7edbe9',
+    secondary: 'darkgray',
+    light: 'white'
   }
-  const classNameTheme = themes[theme].join(' ')
+  const color = themes[theme]
+  let renderedCounter = 0
 
-  return <button className={`${styles.button} p-3 ${classNameTheme}`} type="button" onClick={onClick}>{ children }</button>
+  useEffect(() => {
+    renderedCounter++
+    if ('paintWorklet' in CSS && renderedCounter === 1) {
+      CSS.paintWorklet.addModule('js/bezel.js')
+    }
+  }, [])
+
+  return <div className={styles['button-container']}>
+    <button
+      className={`${styles.button} text-lg p-3 px-5 ${className}`}
+      onClick={onClick}
+      {...anotherprops}
+      style={{ '--bezel-color': color }}>
+        <span>{ children }</span>
+    </button>
+    <div
+      className={`${styles['button--border']} text-lg font-medium p-3 px-5`}
+      style={{ '--bezel-color': color }}>{ children }
+    </div>
+  </div>
 }
 
 Button.defaultProps = {
   onClick: () => {},
-  theme: 'primary'
+  theme: 'primary',
+  className: ''
 }
 
 Button.propTypes = {
   children: PropTypes.string.isRequired,
   onClick: PropTypes.func,
-  theme: PropTypes.string
+  theme: PropTypes.string,
+  anotherprops: PropTypes.object,
+  className: PropTypes.string
 }
 
 export default Button
