@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './_.module.scss'
 
@@ -6,17 +6,12 @@ function Button ({ children, onClick, theme, className, ...anotherprops }) {
   const themes = {
     primary: '#7edbe9',
     secondary: 'darkgray',
-    light: 'white'
+    light: 'white',
+    warning: '#e3a64f',
+    danger: '#e34f4f',
+    success: '#7edbe9'
   }
   const color = themes[theme]
-  let renderedCounter = 0
-
-  useEffect(() => {
-    renderedCounter++
-    if ('paintWorklet' in CSS && renderedCounter === 1) {
-      CSS.paintWorklet.addModule('js/bezel.js')
-    }
-  }, [])
 
   return <div className={styles['button-container']}>
     <button
