@@ -8,18 +8,17 @@ function Button ({ children, onClick, theme, className, ...anotherprops }) {
     secondary: 'darkgray',
     light: 'white',
     warning: '#e3a64f',
-    danger: '#e34f4f',
-    success: '#7edbe9'
+    danger: '#e34f4f'
   }
   const color = themes[theme]
 
-  return <div className={styles['button-container']}>
+  return <div className={styles['button-container']} data-testid="button">
     <button
       className={`${styles.button} text-lg p-3 px-5 ${className}`}
       onClick={onClick}
       {...anotherprops}
       style={{ '--bezel-color': color }}>
-        <span>{ children }</span>
+        <span>{ children || 'No hay contenido en el botón' }</span>
     </button>
     <div
       className={`${styles['button--border']} text-lg font-medium p-3 px-5`}
