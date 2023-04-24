@@ -1,0 +1,14 @@
+@import '@/styles/variables.scss';
+
+.label {
+  --bezel-filled: false;
+  --bezel-filled-bg: true;
+  --bezel-color: rgb(0, 217, 255);
+  --bezel-color-bg: rgb(0, 0, 0);
+  --bezel-width: 2;
+  --bezel-radius: 20px 0 20px 0;
+
+  background: paint(bezel);
+  width: fit-content;
+  padding: 30px;
+}

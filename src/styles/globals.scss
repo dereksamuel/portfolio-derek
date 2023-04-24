@@ -14,13 +14,18 @@
   cursor: none;
 }
 
-html {
+body {
   background-color: $color-dark;
+  padding: 15px;
 
   &:active .cursor {
     transform: scale(0.7);
     filter: brightness(1.5);
   }
+}
+
+html, body, body > div {
+  height: 100%;
 }
 
 .material-symbols-outlined {

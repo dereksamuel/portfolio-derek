@@ -1,6 +1,6 @@
 class Bezel {
   static get inputProperties () {
-    return ['--bezel-color', '--bezel-width', '--bezel-radius', '--bezel-filled']
+    return ['--bezel-color', '--bezel-width', '--bezel-radius', '--bezel-filled', '--bezel-filled-bg', '--bezel-color-bg']
   }
 
   static get inputArguments () {
@@ -41,7 +41,13 @@ class Bezel {
     // if (properties.get('--bezel-filled')[0].trim() === 'true') {
     //   ctx.fillStyle = properties.get('--bezel-color')
     // }
-    ctx.fill()
+    console.log(properties.get('--bezel-color-bg'))
+    if (properties.get('--bezel-color-bg')?.length) {
+      ctx.fillStyle = properties.get('--bezel-color-bg')
+    }
+    if (properties.get('--bezel-filled-bg')[0].trim() === 'true') {
+      ctx.fill()
+    }
     ctx.stroke()
   }
 }

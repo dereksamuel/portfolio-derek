@@ -3,7 +3,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@atoms/*": ["./src/components/Atoms/*"],
-      "@styles/*": ["./src/styles/*"],
+      "@molecules/*": ["./src/components/Molecules/*"]
     }
   }
 }

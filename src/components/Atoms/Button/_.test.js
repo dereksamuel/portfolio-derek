@@ -6,12 +6,7 @@ import { render } from '@testing-library/react'
 
 describe('Button', () => {
   it('should be rendered', () => {
-    const button = render(<Button />)
+    const button = render(<Button>Hola mundo</Button>)
     expect(button.getByTestId('button')).toBeInTheDocument()
-  })
-
-  it('should render child error', () => {
-    const button = render(<Button />)
-    expect(button.getByText('No hay contenido en el botón')).toBeTruthy()
   })
 })

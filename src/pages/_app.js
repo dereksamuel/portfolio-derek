@@ -1,24 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import '@/styles/globals.scss'
+import useLoadHoudini from '@/hooks/useLoadHoudini'
+import Cursor from '@atoms/Cursor'
+import GeneralBorder from '@/components/Atoms/GeneralBorder'
 
 function App ({ Component, pageProps }) {
-  const [customProp, setCustomProp] = useState([])
+  useLoadHoudini()
 
-  if ('paintWorklet' in CSS) {
-    if (customProp.find((cp) => cp !== '--bezel-color')) {
-      window.CSS.registerProperty({
-        name: '--bezel-color',
-        syntax: '<color>',
-        inherits: false,
-        initialValue: 'false'
-      })
-      setCustomProp([...customProp, '--bezel-color'])
-    }
-    CSS.paintWorklet.addModule('js/bezel.js')
-  }
-
-  return <Component {...pageProps} />
+  return <GeneralBorder>
+    <Component {...pageProps} />
+    <Cursor />
+  </GeneralBorder>
 }
 
 App.propTypes = {

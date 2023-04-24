@@ -34,7 +34,7 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.any.isRequired,
   onClick: PropTypes.func,
   theme: PropTypes.string,
   anotherprops: PropTypes.object,
