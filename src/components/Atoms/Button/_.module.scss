@@ -1,6 +1,8 @@
+@import '@styles/variables.scss';
+
 @property --bezel-color {
   syntax: "<color>";
-  initial-value: blue;
+  initial-value: $color-primary;
   inherits: false;
 }
 
@@ -29,7 +31,7 @@
   --bezel-width: 3;
   --bezel-radius: 20px 0 20px 0;
   color: var(--bezel-color);
-  filter: contrast(1);
+  filter: contrast(1.3);
   transition: --bezel-color 1s ease-in-out;
   // filter: contrast(0.85);
 }
