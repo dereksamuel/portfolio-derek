@@ -9,7 +9,8 @@ const customJestConfig = {
   testEnvironment: 'jest-environment-jsdom',
   moduleNameMapper: {
     '^@atoms/(.*)$': '<rootDir>/src/components/Atoms/$1',
-    '^@molecules/(.*)$': '<rootDir>/src/components/Molecules/$1'
+    '^@molecules/(.*)$': '<rootDir>/src/components/Molecules/$1',
+    '^@organisms/(.*)$': '<rootDir>/src/components/Organisms/$1'
   }
 }
 

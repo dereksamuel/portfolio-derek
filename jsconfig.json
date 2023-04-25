@@ -3,7 +3,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@atoms/*": ["./src/components/Atoms/*"],
-      "@molecules/*": ["./src/components/Molecules/*"]
+      "@molecules/*": ["./src/components/Molecules/*"],
+      "@organisms/*": ["./src/components/Organisms/*"],
     }
   }
 }

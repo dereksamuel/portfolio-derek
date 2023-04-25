@@ -8,7 +8,7 @@ function Cursor () {
 
   return <div ref={$cursor} className='cursor flex items-center justify-center' data-testid="cursor">
     <div className='cursor__main'>
-      <IoMdAdd className='text-7xl font-normal cursor__gunn' />
+      <IoMdAdd className='text-7xl font-extralight cursor__gunn' />
     </div>
     <div className='cursor__main--border'></div>
   </div>

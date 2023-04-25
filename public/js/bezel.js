@@ -41,7 +41,6 @@ class Bezel {
     // if (properties.get('--bezel-filled')[0].trim() === 'true') {
     //   ctx.fillStyle = properties.get('--bezel-color')
     // }
-    console.log(properties.get('--bezel-color-bg'))
     if (properties.get('--bezel-color-bg')?.length) {
       ctx.fillStyle = properties.get('--bezel-color-bg')
     }
