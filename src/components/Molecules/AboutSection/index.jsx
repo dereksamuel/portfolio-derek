@@ -32,11 +32,22 @@ function AboutSection () {
       </div>
     }
   ]
+  const onDownload = () => {
+    fetch('smart_ranks.pdf').then(response => {
+      response.blob().then(blob => {
+        const fileURL = window.URL.createObjectURL(blob)
+        const alink = document.createElement('a')
+        alink.href = fileURL
+        alink.download = 'smart_ranks.pdf'
+        alink.click()
+      })
+    })
+  }
   const generateTemplate = (subtitle, desc, html) => {
     return <>
       <h3 className='text-2xl subtitle pb-2 flex justify-between items-center'>
         <strong>{subtitle}</strong>
-        {subtitle === 'My habilities' && <Button isSmall>Download Proof</Button>}
+        {subtitle === 'My habilities' && <Button isSmall theme='secondary' onClick={onDownload}>Download Proof</Button>}
       </h3>
       <hr />
       {desc ? <p className='pt-2 pb-5'>{desc}</p> : null}

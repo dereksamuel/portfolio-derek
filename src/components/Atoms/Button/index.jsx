@@ -21,10 +21,9 @@ function Button ({
   const color = themes[theme]
   const buttonSize = isSmall ? 'text-base font-medium p-3 px-4' : 'text-lg font-medium p-3 px-5'
 
-  return <div className={`${styles['button-container' + (isActive ? '--active' : '')]}`} data-testid="button">
+  return <div className={`${styles['button-container' + (isActive ? '--active' : '')]}`} onClick={onClick} data-testid="button">
     <button
-      className={`${styles[`button${isSmall ? '--small' : ''}`]} text-lg p-3 px-5 ${className}`}
-      onClick={onClick}
+      className={`${styles[`button${isSmall ? '--small' : ''}`]} ${buttonSize} ${className}`}
       {...anotherprops}
       style={{ '--bezel-color': color }}>
         <span>{ children || 'No hay contenido en el botón' }</span>
