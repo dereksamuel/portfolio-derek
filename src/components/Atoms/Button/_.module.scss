@@ -1,23 +1,28 @@
 @import '@/styles/variables.scss';
 
-.button-container {
+.button-container,
+.button-container--active {
   position: relative;
   width: fit-content;
-  left: 25px;
-  top: 25px;
-  margin-bottom: 30px;
-
-  &:hover {
-    cursor: pointer;
-  }
 
   &:hover .button--border {
+    cursor: pointer;
+    transform: translate(7px, 7px);
+    filter: brightness(1.5);
+  }
+}
+
+.button-container--active {
+  .button--border,
+  .button--small {
+    cursor: pointer;
     transform: translate(7px, 7px);
     filter: brightness(1.5);
   }
 }
 
 .button,
+.button--small,
 .button--border {
   --bezel-width: 3;
   --bezel-radius: 20px 0 20px 0;
@@ -27,7 +32,8 @@
   transition: --bezel-color 1s ease-in-out;
 }
 
-.button {
+.button,
+.button--small {
   --bezel-width: 1.5;
   --bezel-filled-bg: true;
   opacity: 0.8;

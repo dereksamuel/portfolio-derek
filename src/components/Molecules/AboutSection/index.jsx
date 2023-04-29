@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './_.module.scss'
 import Hability from '@/components/Atoms/Hability'
 import { IoLogoGithub, IoLogoLinkedin, IoMdCall, IoMdMail } from 'react-icons/io'
+import Button from '@/components/Atoms/Button'
 
 function AboutSection () {
   const descs = [
@@ -13,10 +14,11 @@ function AboutSection () {
       subtitle: 'My habilities',
       html: <div className={styles.habilities}>
         <Hability src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png' name='JavaScript' qualify={6} />
-        <Hability src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png' name='HTML5' qualify={6} />
-        <Hability src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png' name='CSS3' qualify={7} />
+        <Hability src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png' name='HTML5' qualify={7} />
+        <Hability src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png' name='CSS3' qualify={6} />
+        <Hability src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png' name='Git' qualify={5} />
         <Hability src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png' name='React' qualify={6} />
-        <Hability src='https://vuejs.org/images/logo.png' name='Vue.js' qualify={5} />
+        <Hability src='https://vuejs.org/images/logo.png' name='Vue.js' qualify={6} />
         <Hability src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/1200px-Svelte_Logo.svg.png' name='Svelte' qualify={4} />
       </div>
     },
@@ -32,7 +34,10 @@ function AboutSection () {
   ]
   const generateTemplate = (subtitle, desc, html) => {
     return <>
-      <h3 className='text-2xl subtitle pb-2'><strong>{subtitle}</strong></h3>
+      <h3 className='text-2xl subtitle pb-2 flex justify-between items-center'>
+        <strong>{subtitle}</strong>
+        {subtitle === 'My habilities' && <Button isSmall>Download Proof</Button>}
+      </h3>
       <hr />
       {desc ? <p className='pt-2 pb-5'>{desc}</p> : null}
       {html || null}
